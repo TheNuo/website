@@ -1,0 +1,9 @@
+{% extends "tool/index.html" %}
+{% from "macros.html" import render_form %}
+
+{% block form %}
+<div class="form">
+    <h2>管理月报应收生成工具</h2>
+    {{ render_form(form, url_for('tool.receivable')) }}
+</div>
+{% endblock %}

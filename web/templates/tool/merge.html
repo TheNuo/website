@@ -1,0 +1,22 @@
+{% extends "tool/index.html" %}
+{% from "macros.html" import render_form %}
+
+{% block form %}
+    <div class="form">
+        <h2>Excel 表格合并</h2>
+        {{ render_form(form, url_for('tool.merge')) }}
+    </div>
+{% endblock %}
+
+{% block text %}
+    <h3>使用说明</h3>
+    <h4>依据字段: 匹配使用的依据列名. </h4>
+    <h4>合并方式: </h4>
+    <h5>left: 以第一个表格的数据为准, 第二个表格依据字段匹配不上的数据丢弃. </h5>
+    <h5>right: 以第二个表格的数据为准, 第一个表格依据字段匹配不上的数据丢弃. </h5>
+    <h5>outer: 完全保留所有数据. </h5>
+    <h5>inner: 只保留依据字段可以匹配上的数据, 其余数据全部抛弃. </h5>
+    <h4>注意事项:</h4>
+    <h5>1. 第一行数据给字段名, 第二行开始为数据, 不要有合并后的单元格. </h5>
+    <h5>2. 表格含有公式, 先全选所有单元格, 再粘贴为数值. </h5>
+{% endblock %}
